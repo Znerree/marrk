@@ -10,16 +10,16 @@ import javax.persistence.Table;
 public class AlertEntity {
 	
 	@Id
-	private int id;
+	private int alertid;
 	private String disasterType;
 	private String message;
 	private String location;
     private String time ;
 	private Date date;
 	
-	public AlertEntity(int id, String disasterType, String message, String location, String time ,Date date)
+	public AlertEntity(int alertid, String disasterType, String message, String location, String time ,Date date)
 	{
-		this.id = id;
+		this.alertid = alertid;
 		this.disasterType = disasterType;
 		this.message = message;
 		this.location = location;
@@ -31,16 +31,16 @@ public class AlertEntity {
 
     @Override
 	public String toString() {
-		return "AlertEntity [id=" + id + ", disasterType=" + disasterType + ", message=" + message + ", location=" + location
+		return "AlertEntity [id=" + alertid + ", disasterType=" + disasterType + ", message=" + message + ", location=" + location
 				+ ", time=" + time + ", date= "+ date + "]"; 
 	}
 
-    public int getId(){
-        return id;
-    }
+    /*public int getId(){
+        return alertid;
+    }  */
 
-    public void setId(int id){
-        this.id = id;
+    public void setId(int alertid){
+        this.alertid = alertid;
     }
 
 	public String getDisastertype() 
@@ -72,7 +72,7 @@ public class AlertEntity {
 		return time;
 	}
 
-	public void setYearTime(String time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
     
