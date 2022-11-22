@@ -29,17 +29,18 @@ public class AlertController {
 	}
 	
 	@PostMapping("/postAlert")
-	public AlertEntity insertContact(@RequestBody AlertEntity alert) {
+	public AlertEntity insertAlert(@RequestBody AlertEntity alert) {
 		return alertserv.insertAlert(alert);
 	}
 	
 	@PutMapping("/putAlert")
-	public AlertEntity putContact(@RequestParam int id, @RequestBody AlertEntity newAlertDetails) throws Exception {
-		return alertserv.putAlert(id, newAlertDetails);
+	public AlertEntity putAlert(@RequestParam int alertid, @RequestBody AlertEntity newAlertDetails) throws Exception {
+		return alertserv.putAlert(alertid, newAlertDetails);
 	}
 	
-	@DeleteMapping("/deleteAlert/{id}")
-	public String deleteAlert(@PathVariable int alertid) {
+	@DeleteMapping("/deleteAlert/{alertid}")
+	public String deleteAlert(@PathVariable int alertid) {															
 		return alertserv.deleteAlert(alertid);
 	}
+
 }

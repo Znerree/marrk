@@ -22,20 +22,11 @@ public class AlertService {
 	}
 	
 	//R - Read all Records from tbl_course
-	public List<AlertEntity>getAllAlert()
-	{
+	public List<AlertEntity> getAllAlert(){															
 		return arepo.findAll();
 	}
 	
-	public AlertEntity findByDisasterType(String disasterType)
-	{
-		if(arepo.findByDisasterType(disasterType) != null)
-			return arepo.findByDisasterType(disasterType);
-		else 
-			return null; 
-	}
-	
-	//R-Read or search record by Course Description 
+	//Update Alert
 	@SuppressWarnings("finally")
 	public AlertEntity putAlert(int alertid, AlertEntity newAlerttDetails) throws Exception
 	{
@@ -43,36 +34,30 @@ public class AlertService {
 		
 		try
 		{
-			//steps in updating
-			//Step 1 - search the id number of the student
-			alert = arepo.findById(alertid).get(); //findbyId() is pre-defined method
+			alert = arepo.findById(alertid).get();
 			
-			//Step 2 - Update the record
+			alert.setDisasterType(newAlerttDetails.getDisasterType());
 			alert.setMessage(newAlerttDetails.getMessage());
+			alert.setLocation(newAlerttDetails.getLocation());
 			alert.setTime(newAlerttDetails.getTime());
-			
-		//Step 3 - save the information and return the value  - refer to finally block 
+			alert.setDate(newAlerttDetails.getDate());
 		} catch(NoSuchElementException nex) {
 			throw new Exception("ID Number " + alertid + "does not exist!"); 
 		} finally { 
 			return arepo.save(alert); 
 		}
 	}
-	
-	//Delete - Delete course record
-	/**
-	 * @param alertid
-	 * @return
-	 */
-	public String deleteAlert(int alertid)
-	{
+
+	public String deleteAlert(int alertid) {
 		String msg;
-		if(arepo.findById(alertid) != null)
-		{
+		if(arepo.findById(alertid)!=null) {
 			arepo.deleteById(alertid);
-			msg = "Alert ID " + alertid + " is succssessfully deleted!";  
-		} else
-			msg = "Alert ID " + alertid + "is NOT found!";
-		  return msg;
-    }
+			
+			msg = "Contact Number with ID of " + alertid + " Deleted!";
+		}
+		else
+			msg = "Contact Number with ID of " + alertid + " is NOT found!";
+		
+		return msg;
+	}
 }

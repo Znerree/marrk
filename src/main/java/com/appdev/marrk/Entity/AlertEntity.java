@@ -1,26 +1,30 @@
 package com.appdev.marrk.Entity;
 
-import java.sql.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "tbl_student")
+@Table(name = "tbl_alert")
 public class AlertEntity {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int alertid;
-	private String disasterType;
+	private String disastertype;
 	private String message;
 	private String location;
     private String time ;
-	private Date date;
+	private String date;
 	
-	public AlertEntity(int alertid, String disasterType, String message, String location, String time ,Date date)
+	public AlertEntity(int alertid, String disastertype, String message, String location, String time ,String date)
 	{
+		super(); 
 		this.alertid = alertid;
-		this.disasterType = disasterType;
+		this.disastertype = disastertype;
 		this.message = message;
 		this.location = location;
         this.time = time;
@@ -29,27 +33,21 @@ public class AlertEntity {
 
     public AlertEntity(){};
 
-    @Override
-	public String toString() {
-		return "AlertEntity [id=" + alertid + ", disasterType=" + disasterType + ", message=" + message + ", location=" + location
-				+ ", time=" + time + ", date= "+ date + "]"; 
-	}
-
-    /*public int getId(){
+      public int getAlertId(){
         return alertid;
-    }  */
+    }  
 
-    public void setId(int alertid){
+     public void setAlertId(int alertid){
         this.alertid = alertid;
-    }
+    } 
 
-	public String getDisastertype() 
+	public String getDisasterType() 
     {
-		return disasterType;
+		return disastertype;
 	}
 
-	public void setdisasterType(String disasterType) {
-		this.disasterType = disasterType;
+	public void setDisasterType(String disastertype) {
+		this.disastertype = disastertype;
 	}
 
 	public String getMessage() {
@@ -76,11 +74,11 @@ public class AlertEntity {
 		this.time = time;
 	}
     
-    public Date getDate() {
+    public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 }
