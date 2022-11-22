@@ -8,5 +8,4 @@ import com.appdev.marrk.Entity.AlertEntity;
 
 @Repository
 public interface AlertRepository extends JpaRepository<AlertEntity, Integer>{
-	AlertEntity findByDisasterType(String disasterType); 
 }
