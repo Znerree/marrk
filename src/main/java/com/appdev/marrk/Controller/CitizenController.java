@@ -45,4 +45,9 @@ public class CitizenController {
 		return citizenserv.deleteCitizen(citizenid);
 	}
 
+	@GetMapping("/userLogin")
+	public CitizenEntity userLogin(@RequestParam String username){
+		return citizenserv.userLogin(username);
+	}
+
 }

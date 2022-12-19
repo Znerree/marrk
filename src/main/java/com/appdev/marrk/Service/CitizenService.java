@@ -68,4 +68,13 @@ public class CitizenService {
 		return msg;
 		
 	}
+
+	//login
+	public CitizenEntity userLogin(String username){
+		if(citizenrepo.findByUsername(username) != null){
+			return citizenrepo.findByUsername(username);
+		}
+		else
+			return null;
+	}
 }

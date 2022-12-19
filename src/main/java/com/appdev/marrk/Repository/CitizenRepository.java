@@ -8,4 +8,7 @@ import com.appdev.marrk.Entity.CitizenEntity;
 
 @Repository
 public interface CitizenRepository extends JpaRepository<CitizenEntity, Integer>{
+
+   CitizenEntity findByUsername(String username);
+   CitizenEntity findByPassword(String password);
 }
