@@ -1,10 +1,14 @@
 package com.appdev.marrk.Entity;
 
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +24,12 @@ public class CitizenEntity{
     private String middlename;
     private String lastname;
     private int contactNumber;
-    private String address; 
+    private String address;
+    
+    @OneToMany(cascade = CascadeType.MERGE)
+	private Set<ContactEntity> contacts;
 
-    public CitizenEntity(int citizenid, String username, String password, String firstname,  String middlename, String lastname, int contactNumber, String address){
+    public CitizenEntity(int citizenid, String username, String password, String firstname,  String middlename, String lastname, int contactNumber, String address, Set<ContactEntity> contacts){
         this.citizenid = citizenid; 
         this.username = username;
         this.password = password;
@@ -35,11 +42,11 @@ public class CitizenEntity{
 
     public CitizenEntity(){}
 
-    public void getCitizenid(int citizenid){
+    public void setCitizenId(int citizenid){
         this.citizenid = citizenid; 
     }
 
-    public int setCitizenid(){
+    public int getCitizenId(){
         return citizenid;
     }
 
@@ -104,7 +111,17 @@ public class CitizenEntity{
 
     public String getAddress(){
         return address;
+    }
+
+    public Set<ContactEntity> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<ContactEntity> contacts) {
+        this.contacts = contacts;
     }    
+
+    
 
 }
     
