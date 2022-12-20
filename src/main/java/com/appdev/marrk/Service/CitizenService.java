@@ -70,12 +70,12 @@ public class CitizenService {
 	}
 
 	//login
-	public boolean userLogin(String username, String password){
+	public CitizenEntity userLogin(String username, String password){
 		if(citizenrepo.findByUsername(username).getCitizenId() == citizenrepo.findByPassword(password).getCitizenId()){
-			return true;
+			return citizenrepo.findByUsername(username);
 		}
 		else{
-			return false;
+			return null;
 		}
 	}
 }

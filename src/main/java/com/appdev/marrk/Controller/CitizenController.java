@@ -46,7 +46,7 @@ public class CitizenController {
 	}
 
 	@GetMapping("/userLogin")
-	public boolean userLogin(@RequestParam String username, @RequestParam String password){
+	public CitizenEntity userLogin(@RequestParam String username, @RequestParam String password){
 		return citizenserv.userLogin(username, password);
 	}
 
