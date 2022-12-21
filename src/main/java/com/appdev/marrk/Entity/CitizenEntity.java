@@ -20,7 +20,7 @@ public class CitizenEntity{
     private String middlename;
     private String lastname;
     private int contactNumber;
-    private String address; 
+    private String address;
 
     public CitizenEntity(int citizenid, String username, String password, String firstname,  String middlename, String lastname, int contactNumber, String address){
         this.citizenid = citizenid; 
@@ -35,11 +35,11 @@ public class CitizenEntity{
 
     public CitizenEntity(){}
 
-    public void getCitizenid(int citizenid){
+    public void setCitizenId(int citizenid){
         this.citizenid = citizenid; 
     }
 
-    public int setCitizenid(){
+    public int getCitizenId(){
         return citizenid;
     }
 
@@ -104,7 +104,7 @@ public class CitizenEntity{
 
     public String getAddress(){
         return address;
-    }    
+    }
 
 }
     

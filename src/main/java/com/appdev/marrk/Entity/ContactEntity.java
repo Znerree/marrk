@@ -20,7 +20,6 @@ public class ContactEntity {
 	private String contact_last_name;
 	private String contact_type;
 	
-	
 	public ContactEntity() {}
 	public ContactEntity(int contact_id, String contact_num, String contact_first_name, String contact_last_name,
 			String contact_type) {
@@ -66,6 +65,6 @@ public class ContactEntity {
 
 	public int getContact_id() {
 		return contact_id;
-	}	
+	}
 	
 }
